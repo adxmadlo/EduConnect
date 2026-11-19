@@ -1,0 +1,38 @@
+# EduConnect — Apache .htaccess
+# Placer dans htdocs/educonnect/
+
+Options -Indexes
+ServerSignature Off
+
+# Force UTF-8
+AddDefaultCharset UTF-8
+
+# PHP settings
+php_value session.cookie_httponly 1
+php_value session.use_strict_mode 1
+php_value session.gc_maxlifetime 900
+
+# Error pages
+ErrorDocument 403 /educonnect/Erreur/403.php
+ErrorDocument 404 /educonnect/Erreur/404.php
+ErrorDocument 500 /educonnect/Erreur/500.php
+ErrorDocument 503 /educonnect/Erreur/503.php
+
+# Block direct access to sensitive files
+<FilesMatch "\.(sql|env|log|sh|py)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block access to Config directory
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^Config/ - [F,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

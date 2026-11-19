@@ -1,0 +1,496 @@
+/* ==================== EduConnect — Login CSS ====================
+   Matches stylemanus.css design system:
+   - Font: Ubuntu
+   - Primary: #326ea9
+   - Cards: border-radius 18px, box-shadow 0 10px 30px rgba(0,0,0,.1)
+   - Nav: identical to all other pages
+   ============================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* ==================== Variables & Reset ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+    --primary:        #326ea9;
+    --primary-dark:   #1f4a7a;
+    --primary-light:  #e8f0f8;
+    --primary-lighter:#f0f5fa;
+    --text-dark:      #000;
+    --text-light:     #777;
+    --text-gray:      #989898;
+    --bg-light:       #f1f1f1;
+    --bg-white:       #fff;
+    --border-light:   #edecec;
+    --success:        #27ae60;
+}
+
+a { text-decoration: none; color: inherit; }
+
+body {
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== Navigation (identical to stylemanus.css) ==================== */
+nav {
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a.logo {
+    font-size: 28px;
+    color: var(--primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+nav a.logo span { color: var(--text-dark); }
+nav a.logo i    { font-size: 32px; }
+
+nav .links {
+    display: flex;
+    gap: 30px;
+}
+nav .links a {
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color .3s ease;
+    position: relative;
+}
+nav .links a:hover,
+nav .links a.active { color: var(--primary); }
+nav .links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 0;
+    width: 100%; height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+nav .login { display: flex; gap: 12px; }
+nav .login button {
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+nav .login button.signup {
+    background-color: var(--primary);
+    color: var(--bg-white);
+}
+nav .login button.signup:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+nav .login button:not(.signup) {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+nav .login button:not(.signup):hover {
+    background-color: var(--primary);
+    color: var(--bg-white);
+}
+nav .login button a { color: inherit; }
+
+/* ==================== Auth Wrapper ==================== */
+.auth-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: var(--bg-light);
+}
+
+/* ==================== Container (slide card) ==================== */
+.container {
+    background-color: var(--bg-white);
+    border-radius: 18px;                        /* matches site cards */
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);     /* matches site cards */
+    position: relative;
+    overflow: hidden;
+    width: 860px;
+    max-width: 100%;
+    min-height: 520px;
+}
+
+/* ==================== Form Panels ==================== */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all .6s ease-in-out;
+}
+
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.container.active .sign-in {
+    transform: translateX(100%);
+}
+
+.sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+.container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: revealPanel .6s;
+}
+
+@keyframes revealPanel {
+    0%, 49.99% { opacity: 0; z-index: 1; }
+    50%, 100%  { opacity: 1; z-index: 5; }
+}
+
+/* ==================== Form internals ==================== */
+.form-container form {
+    background-color: var(--bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 36px 40px;
+    height: 100%;
+    gap: 4px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+.brand-logo i { font-size: 26px; }
+
+.form-container form h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 6px;
+}
+.social-icons a.icon {
+    width: 40px; height: 40px;
+    border: 2px solid var(--border-light);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 18px;
+    transition: all .3s ease;
+}
+.social-icons a.icon:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--primary-lighter);
+    transform: translateY(-2px);
+}
+
+/* Divider */
+.divider {
+    font-size: 12px;
+    color: var(--text-gray);
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 4px 0 8px;
+}
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 28%;
+    height: 1px;
+    background: var(--border-light);
+}
+.divider::before { left: 0; }
+.divider::after  { right: 0; }
+
+/* Input groups */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin: 5px 0;
+}
+.input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray);
+    font-size: 18px;
+    pointer-events: none;
+    transition: color .3s;
+}
+.input-group input {
+    width: 100%;
+    padding: 11px 14px 11px 38px;
+    background-color: var(--primary-lighter);
+    border: 2px solid var(--border-light);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--text-dark);
+    transition: all .3s ease;
+    outline: none;
+}
+.input-group input:focus {
+    border-color: var(--primary);
+    background-color: var(--bg-white);
+    box-shadow: 0 0 0 3px rgba(50,110,169,.1);
+}
+.input-group input:focus + i,
+.input-group:focus-within i {
+    color: var(--primary);
+}
+
+/* Forgot link */
+.forgot-link {
+    font-size: 12px;
+    color: var(--primary);
+    align-self: flex-end;
+    margin: 2px 0 6px;
+    transition: color .3s;
+}
+.forgot-link:hover { color: var(--primary-dark); text-decoration: underline; }
+
+/* Auth button */
+.btn-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all .3s ease;
+    letter-spacing: .3px;
+}
+.btn-auth:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(50,110,169,.3);
+}
+.btn-auth i { font-size: 18px; }
+
+/* ==================== Toggle Panel ==================== */
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all .6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--bg-white);
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all .6s ease-in-out;
+}
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 36px;
+    text-align: center;
+    top: 0;
+    transition: all .6s ease-in-out;
+    gap: 12px;
+}
+
+.toggle-left  { transform: translateX(-200%); }
+.container.active .toggle-left { transform: translateX(0); }
+.toggle-right { right: 0; transform: translateX(0); }
+.container.active .toggle-right { transform: translateX(200%); }
+
+.toggle-icon {
+    font-size: 52px;
+    opacity: .9;
+    margin-bottom: 4px;
+}
+
+.toggle-panel h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--bg-white);
+    margin: 0;
+}
+
+.toggle-panel p {
+    font-size: 13px;
+    opacity: .85;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Feature list inside toggle */
+.toggle-features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin: 4px 0;
+}
+.toggle-features .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    opacity: .9;
+}
+.toggle-features .feature i {
+    font-size: 16px;
+    color: rgba(255,255,255,.8);
+    flex-shrink: 0;
+}
+
+/* Toggle button */
+.btn-toggle {
+    background-color: transparent;
+    border: 2px solid var(--bg-white);
+    color: var(--bg-white);
+    padding: 10px 36px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+    margin-top: 4px;
+}
+.btn-toggle:hover {
+    background-color: var(--bg-white);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* ==================== Responsive ==================== */
+@media screen and (max-width: 1400px) {
+    nav { padding: 0 40px; }
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        width: 100%;
+        min-height: 460px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav { padding: 0 20px; }
+    nav .links { display: none; }
+
+    .auth-wrapper { padding: 30px 16px; }
+
+    /* Stack forms vertically on mobile — hide toggle, show both panels sequentially */
+    .container {
+        min-height: auto;
+        border-radius: 14px;
+    }
+
+    .toggle-container { display: none; }
+
+    .form-container {
+        position: relative;
+        width: 100%;
+        opacity: 1 !important;
+        transform: none !important;
+        height: auto;
+    }
+
+    .sign-in,
+    .sign-up {
+        z-index: 1;
+    }
+
+    .sign-up { display: none; }
+
+    .form-container form {
+        padding: 30px 24px;
+        gap: 6px;
+    }
+
+    .container.active .sign-in { display: none; transform: none; }
+    .container.active .sign-up { display: flex; transform: none; opacity: 1; }
+}
+
+@media screen and (max-width: 576px) {
+    nav a.logo { font-size: 20px; }
+    nav .login button { padding: 8px 12px; font-size: 12px; }
+}
