@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
     $action=$_POST["action"]??"";
     if ($action==="update_prefs") {
         $ne=isset($_POST["notif_email"])?1:0; $ns=isset($_POST["notif_sms"])?1:0; $ni=isset($_POST["notif_inapp"])?1:0;
-        $th=in_array($_POST["theme"]??"",[" light","dark","auto"])?$_POST["theme"]:"auto";
-        $lg=in_array($_POST["langue"]??"",[" fr","en"])?$_POST["langue"]:"fr";
+        $th=in_array($_POST["theme"]??"",["light","dark","auto"],true)?$_POST["theme"]:"auto";
+        $lg=in_array($_POST["langue"]??"",["fr","en"],true)?$_POST["langue"]:"fr";
         db_exec($conn,
             "INSERT INTO user_preferences (user_id,notif_email,notif_sms,notif_inapp,langue,theme)
              VALUES (?,?,?,?,?,?) ON DUPLICATE KEY UPDATE notif_email=?,notif_sms=?,notif_inapp=?,langue=?,theme=?",
@@ -87,6 +87,9 @@ $u_numero = h($user['numero_ucao']);
 .toast{position:fixed;bottom:20px;right:20px;background:var(--txt);color:#fff;padding:12px 16px;border-radius:var(--r-sm);font-size:12.5px;font-weight:500;box-shadow:var(--sh-lg);transform:translateY(100px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);z-index:9999;border-left:3px solid var(--blue)}.toast.show{transform:translateY(0);opacity:1}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.content{padding:12px 14px}.setting-item{flex-direction:column;align-items:flex-start;gap:8px}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -189,5 +192,6 @@ function nav(page,btn){document.querySelectorAll('.nav-item').forEach(b=>b.class
 function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000)}
 </script>
 
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

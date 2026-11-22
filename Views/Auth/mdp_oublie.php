@@ -39,9 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 $_SESSION['reset_user_id'] = (int)$user['id'];
                 $_SESSION['reset_step']    = 2;
                 $step = 2;
-                // TODO : envoyer vrai email via Resend/SendGrid
-                // Pour la démo : log le code
-                error_log("[EduConnect] Code reset pour {$email} : {$code} (valable 15min)");
+                // TODO : envoyer le vrai email via Resend/SendGrid.
+                // Le code n'est journalisé qu'en debug local explicite : jamais en production.
+                if (defined('EDUCONNECT_DEBUG_RESET') && EDUCONNECT_DEBUG_RESET === true) {
+                    error_log("[EduConnect] Code reset (debug) pour {$email} : {$code} (valable 15min)");
+                }
                 $success = "Code envoyé à {$email}. Vérifiez vos emails.";
             }
         }
@@ -123,6 +125,9 @@ $step = (int)($_SESSION['reset_step'] ?? 1);
 .alert-ok{background:#e8f5e9;border:1px solid #a5d6a7;color:#1b5e20}
 .back-link{font-size:13px;color:var(--primary);margin-top:16px;cursor:pointer}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 <nav>
@@ -267,4 +272,5 @@ function checkStrength(v) {
 }
 </script>
 <script src="../../Assets/js/animations.js"></script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body></html>

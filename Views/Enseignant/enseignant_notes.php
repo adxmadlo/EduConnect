@@ -214,6 +214,9 @@ $u_numero = h($user['numero_ucao']);
 @media(max-width:1200px){.two-col{grid-template-columns:1fr}}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.content{padding:12px 14px}.page-header{flex-direction:column;align-items:flex-start}.selector-bar{flex-direction:column}.stats-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -398,10 +401,13 @@ $u_numero = h($user['numero_ucao']);
 const STUDENTS = <?= json_encode(array_map(fn($en)=>[
   'id'       => (int)$en['etu_id'],
   'num'      => $en['numero_ucao'] ?? '—',
+  'mat'      => $en['numero_ucao'] ?? '—',
   'name'     => $en['prenom'].' '.$en['nom'],
   'devoir'   => $en['note_devoir'] !== null ? (float)$en['note_devoir'] : null,
   'examen'   => $en['note_examen'] !== null ? (float)$en['note_examen'] : null,
   'final'    => $en['note_finale'] !== null ? (float)$en['note_finale'] : null,
+  'note'     => $en['note_finale'] !== null ? (float)$en['note_finale'] : null,
+  'saved'    => !empty($en['publie']) || (int)($en['note_id'] ?? 0) > 0,
   'publie'   => (bool)$en['publie'],
   'note_id'  => (int)($en['note_id']??0),
 ], $etudiants_notes)) ?>;
@@ -523,5 +529,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 });
 </script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

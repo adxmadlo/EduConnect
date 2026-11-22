@@ -423,6 +423,9 @@ a{text-decoration:none;color:inherit}
   .table td,.table th{padding:8px 10px}
 }
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -756,5 +759,6 @@ function toast(msg){
 }
 </script>
 
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>
