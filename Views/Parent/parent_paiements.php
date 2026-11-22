@@ -312,6 +312,9 @@ a{text-decoration:none;color:inherit}
 @media(max-width:1100px){.stats-row{grid-template-columns:1fr 1fr}.tranches{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.content{padding:12px 14px}.page-header{flex-direction:column;align-items:flex-start;gap:10px}.stats-row{grid-template-columns:1fr 1fr}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -996,5 +999,6 @@ async function payerOM(fraisId, montant) {
     }
 })();
 </script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

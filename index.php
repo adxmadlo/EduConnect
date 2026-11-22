@@ -1,23 +1,24 @@
 <?php
 /**
- * EduConnect - Homepage
- * Modern educational platform for student management
+ * EduConnect — Page d'accueil publique
+ * Vitrine de la plateforme de gestion éducative UCAO Saint-Michel.
  */
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EduConnect — plateforme de gestion éducative de l'UCAO Saint-Michel : cours, notes, paiements mobile money, mentorat et suivi parental.">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="Assets/css/stylemanus.css">
-    <title>EduConnect - Plateforme de Gestion Éducative</title>
+    <link rel="stylesheet" href="Assets/css/educonnect-public.css">
+    <title>EduConnect — Plateforme de gestion éducative</title>
 </head>
 
-<body>
+<body class="page-index">
 
-    <!-- Navigation -->
     <nav>
         <a href="index.php" class="logo">
             <i class='bx bxs-graduation'></i>
@@ -35,194 +36,160 @@
         </div>
     </nav>
 
-    <!-- Hero Header -->
     <header>
         <div class="left">
-            <h1>Transformez votre <span>Expérience Éducative</span></h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea cum beatae amet sint incidunt! Alias explicabo tempora praesentium. Repellendus at temporibus perferendis voluptatibus nisi doloribus quisquam libero, dolor laborum ut!</p>
-            <a href="Views.Auth.register.php">
-                <i class='bx bx-play-circle'></i>
-                <span>Se Connecter A Mon Compte</span>
+            <h1>La vie académique de l'UCAO, <span>en un seul endroit</span></h1>
+            <p>Notes, emploi du temps, scolarité et mentorat réunis dans un espace unique pour les étudiants,
+                les enseignants, les parents et l'administration. Chaque rôle voit exactement ce qui le concerne.</p>
+            <a href="Views/Auth/login.php">
+                <i class='bx bx-log-in-circle'></i>
+                <span>Accéder à mon espace</span>
             </a>
         </div>
-        <!-- image a mettre plus tard -->
-        <img src="Assets/images/hero.png" alt="EduConnect Hero">
+
+        <div class="hero-visual hero-visual--image">
+            <img src="Assets/images/hero-educonnect.webp"
+                 alt="Trois professionnels échangeant devant un ordinateur portable">
+        </div>
     </header>
 
-    <!-- Features Section -->
-    <h2 class="separator">
-        Fonctionnalités Principales
-    </h2>
+    <h2 class="separator">Fonctionnalités principales</h2>
 
     <div class="features">
         <div class="item">
             <div class="header">
                 <i class='bx bx-book-open'></i>
-                <h5>Gestion des Cours</h5>
+                <h5>Gestion des cours</h5>
             </div>
-            <p>Accédez à tous vos cours, consultez les horaires, téléchargez les matériaux pédagogiques et suivez votre progression académique.</p>
+            <p>Cours, emplois du temps et supports pédagogiques par classe et par module, mis à jour par les enseignants.</p>
         </div>
         <div class="item">
             <div class="header">
                 <i class='bx bx-bar-chart-alt-2'></i>
-                <h5>Suivi des Notes</h5>
+                <h5>Suivi des notes</h5>
             </div>
-            <p>Consultez vos notes en temps réel, suivez votre moyenne générale et recevez des alertes sur vos performances académiques.</p>
+            <p>Notes par module, moyennes pondérées, mentions et rang, avec bulletin téléchargeable par semestre.</p>
         </div>
         <div class="item">
             <div class="header">
                 <i class='bx bx-credit-card'></i>
-                <h5>Paiements Sécurisés</h5>
+                <h5>Paiements sécurisés</h5>
             </div>
-            <p>Effectuez vos paiements de scolarité de manière sécurisée via Wave, Orange Money ou carte bancaire. Recevez des reçus instantanés.</p>
+            <p>Règlement de la scolarité par Wave, Orange Money ou carte, avec reçu numérique et suivi du solde restant.</p>
         </div>
     </div>
 
-    <!-- Services Preview -->
-    <h2 class="separator">
-        Nos Services
-    </h2>
+    <h2 class="separator">Un espace par rôle</h2>
+
+    <div class="features">
+        <div class="item">
+            <div class="header"><i class='bx bx-user'></i><h5>Étudiant</h5></div>
+            <p>Résultats, progression des crédits, prochains cours, échéances de scolarité et sessions de mentorat.</p>
+        </div>
+        <div class="item">
+            <div class="header"><i class='bx bx-group'></i><h5>Parent</h5></div>
+            <p>Suivi de chaque enfant : notes, assiduité, paiements et messages avec l'équipe pédagogique.</p>
+        </div>
+        <div class="item">
+            <div class="header"><i class='bx bx-chalkboard'></i><h5>Enseignant</h5></div>
+            <p>Saisie des notes, publication des résultats, ressources de cours et échanges avec les étudiants.</p>
+        </div>
+        <div class="item">
+            <div class="header"><i class='bx bx-star'></i><h5>Mentor</h5></div>
+            <p>Demandes de mentorat, planning des séances et suivi de la progression des étudiants accompagnés.</p>
+        </div>
+        <div class="item">
+            <div class="header"><i class='bx bx-shield-quarter'></i><h5>Administration</h5></div>
+            <p>Utilisateurs, classes, salles, recouvrement, rapports et file d'attente de validation des comptes.</p>
+        </div>
+    </div>
+
+    <h2 class="separator">Nos services</h2>
 
     <div class="services-preview">
         <div class="category">
             <a href="services.php#mentoring">Mentorat</a>
-            <a href="services.php#timetable">Emploi du Temps</a>
-            <a href="services.php#rooms">Réservation de Salles</a>
+            <a href="services.php#timetable">Emploi du temps</a>
+            <a href="services.php#rooms">Réservation de salles</a>
             <a href="services.php#notifications">Notifications</a>
         </div>
 
         <div class="services-list">
             <div class="item">
-                <div class="icon-box">
-                    <i class='bx bx-user-check'></i>
-                </div>
+                <div class="icon-box"><i class='bx bx-user-check'></i></div>
                 <div class="info">
-                    <h5>Mentorat Académique</h5>
-                    <p>Connectez-vous avec des mentors expérimentés pour améliorer vos performances académiques et obtenir des conseils personnalisés.</p>
+                    <h5>Mentorat académique</h5>
+                    <p>Des étudiants avancés accompagnent leurs camarades sur les modules difficiles, séance par séance.</p>
                 </div>
             </div>
             <div class="item">
-                <div class="icon-box">
-                    <i class='bx bx-calendar'></i>
-                </div>
+                <div class="icon-box"><i class='bx bx-calendar'></i></div>
                 <div class="info">
-                    <h5>Emploi du Temps Intelligent</h5>
-                    <p>Consultez votre emploi du temps, recevez des rappels de cours et synchronisez vos événements avec votre calendrier personnel.</p>
+                    <h5>Emploi du temps</h5>
+                    <p>Cours, salles et enseignants de la semaine, consultables depuis un téléphone.</p>
                 </div>
             </div>
             <div class="item">
-                <div class="icon-box">
-                    <i class='bx bx-door-open'></i>
-                </div>
+                <div class="icon-box"><i class='bx bx-door-open'></i></div>
                 <div class="info">
-                    <h5>Réservation de Salles</h5>
-                    <p>Réservez facilement les salles de classe disponibles pour vos projets de groupe et vos études collaboratives.</p>
+                    <h5>Réservation de salles</h5>
+                    <p>Réservez une salle pour un travail de groupe et suivez la validation par l'administration.</p>
                 </div>
             </div>
             <div class="item">
-                <div class="icon-box">
-                    <i class='bx bx-bell'></i>
-                </div>
+                <div class="icon-box"><i class='bx bx-bell'></i></div>
                 <div class="info">
-                    <h5>Notifications en Temps Réel</h5>
-                    <p>Restez informé de tous les événements importants : résultats d'examen, changements d'horaire, messages des enseignants.</p>
+                    <h5>Notifications</h5>
+                    <p>Résultats publiés, changement d'horaire, échéance de paiement : l'information arrive au bon moment.</p>
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- Statistics Section -->
-    <h2 class="separator">
-        Statistiques
-    </h2>
+    <h2 class="separator">La plateforme en bref</h2>
 
     <div class="stats">
         <div class="stat-item">
-            <h3>5,000+</h3>
-            <p>Étudiants Actifs</p>
+            <h3>5 rôles</h3>
+            <p>Un espace dédié</p>
         </div>
         <div class="stat-item">
-            <h3>200+</h3>
-            <p>Enseignants</p>
+            <h3>Wave · OM</h3>
+            <p>Paiement mobile money</p>
         </div>
         <div class="stat-item">
-            <h3>50+</h3>
-            <p>Programmes d'Études</p>
+            <h3>LMD</h3>
+            <p>Notes, crédits, mentions</p>
         </div>
         <div class="stat-item">
-            <h3>99.9%</h3>
-            <p>Disponibilité</p>
+            <h3>UCAO</h3>
+            <p>Saint-Michel</p>
         </div>
     </div>
 
-    <!-- Testimonials Section -->
-    <h2 class="separator">
-        Témoignages
-    </h2>
+    <h2 class="separator">Comment ça marche</h2>
 
     <div class="testimonials">
         <div class="item">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-            </div>
-                       <p>" Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dignissimos fuga doloremque "</p>
-            <div class="author">
-                <img src="assets/avatar-1.png" alt="Aminata Diallo">
-                <div>
-                    <h5>Aminata Diallo</h5>
-                    <p>Étudiante L2 Informatique</p>
-                </div>
-            </div>
+            <div class="stars"><i class='bx bx-log-in-circle'></i></div>
+            <p><strong>1. Connectez-vous</strong><br>Un identifiant UCAO suffit. Chaque compte est rattaché à un rôle et à ses données.</p>
         </div>
         <div class="item">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-            </div>
-            <p>" Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dignissimos fuga doloremque "</p>
-            <div class="author">
-                <img src="assets/avatar-2.png" alt="Ousmane Sow">
-                <div>
-                    <h5>Ousmane Sow</h5>
-                    <p>Étudiant M1 Génie Logiciel</p>
-                </div>
-            </div>
+            <div class="stars"><i class='bx bx-line-chart'></i></div>
+            <p><strong>2. Suivez votre parcours</strong><br>Notes, crédits, emploi du temps et scolarité sont mis à jour par l'administration et les enseignants.</p>
         </div>
         <div class="item">
-            <div class="stars">
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-            </div>
-            <p>" Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid dignissimos fuga doloremque "</p>
-            <div class="author">
-                <img src="assets/avatar-3.png" alt="Dr. Mamadou Ba">
-                <div>
-                    <h5>Dr. Mamadou Ba</h5>
-                    <p>Professeur de Mathématiques</p>
-                </div>
-            </div>
+            <div class="stars"><i class='bx bx-check-shield'></i></div>
+            <p><strong>3. Agissez au bon moment</strong><br>Payez une échéance, réservez une salle ou demandez un mentorat, sans passer par le secrétariat.</p>
         </div>
     </div>
 
-    <!-- CTA Section -->
     <div class="cta-section">
-        <h2>Prêt à Transformer Votre Expérience Éducative?</h2>
-        <p>Rejoignez des milliers d'étudiants et d'enseignants qui utilisent EduConnect pour réussir.</p>
-        <a href="register.php" class="cta-button">S'inscrire Gratuitement</a>
+        <h2>Prêt à utiliser EduConnect ?</h2>
+        <p>Étudiants, parents, enseignants et mentors disposent déjà d'un compte UCAO.</p>
+        <a href="Views/Auth/login.php" class="cta-button">Se connecter</a>
     </div>
 
-    <!-- Footer -->
     <footer>
         <h3>Plateforme de Gestion Éducative Complète</h3>
         <div class="right">

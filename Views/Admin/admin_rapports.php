@@ -97,6 +97,9 @@ $u_numero = h($user['numero_ucao']);
 .toast{position:fixed;bottom:20px;right:20px;background:var(--txt);color:#fff;padding:12px 16px;border-radius:var(--r-sm);font-size:12.5px;font-weight:500;box-shadow:var(--sh-lg);transform:translateY(100px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);z-index:9999;border-left:3px solid var(--blue)}.toast.show{transform:translateY(0);opacity:1}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.content{padding:12px 14px}.page-header{flex-direction:column;align-items:flex-start;gap:12px}.page-actions{width:100%}.grid{grid-template-columns:1fr}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -197,5 +200,6 @@ const payCtx=document.getElementById('paymentsChart').getContext('2d');
 new Chart(payCtx,{type:'bar',data:{labels:['Semaine 1','Semaine 2','Semaine 3','Semaine 4'],datasets:[{label:'Paiements',data: <?= json_encode(array_map(fn($r)=>(float)$r['total_confirme'],$paiements_par_mois)) ?>,backgroundColor:'#326ea9'},{label:'Retards',data: <?= json_encode(array_map(fn($c)=>(int)$c['nb_etudiants_notes'],$moyennes_classes)) ?>,backgroundColor:'#C41E3A'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true}}}});
 </script>
 
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

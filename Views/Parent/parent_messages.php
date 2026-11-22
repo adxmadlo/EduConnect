@@ -253,6 +253,9 @@ a{text-decoration:none;color:inherit}
 
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.thread-list{width:100%;position:absolute;z-index:10;height:100%}.thread-list.hidden{display:none}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -663,5 +666,6 @@ function toast(msg) {
 }
 const FIREBASE_USER = <?= $firebase_user_data ?>;
 </script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

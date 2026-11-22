@@ -299,6 +299,9 @@ a{text-decoration:none;color:inherit}
 @media(max-width:1200px){.two-col,.two-col-a,.three-col{grid-template-columns:1fr}.stat-cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.content{padding:12px 14px}.profile-hero{flex-direction:column}.profile-stats{margin-left:0}.stat-cards{grid-template-columns:1fr 1fr}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -606,5 +609,6 @@ function buildPresenceChart() {
   });
 }
 </script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

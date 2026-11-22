@@ -28,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
     if ($action==="update_prefs") {
         $ne=isset($_POST["notif_email"])?1:0; $ns=isset($_POST["notif_sms"])?1:0;
         $ni=isset($_POST["notif_inapp"])?1:0;
-        $th=in_array($_POST["theme"]??"",[" light","dark","auto"])?$_POST["theme"]:"auto";
-        $lg=in_array($_POST["langue"]??"",[" fr","en"])?$_POST["langue"]:"fr";
+        $th=in_array($_POST["theme"]??"",["light","dark","auto"],true)?$_POST["theme"]:"auto";
+        $lg=in_array($_POST["langue"]??"",["fr","en"],true)?$_POST["langue"]:"fr";
         db_exec($conn,
             "INSERT INTO user_preferences (user_id,notif_email,notif_sms,notif_inapp,langue,theme)
              VALUES (?,?,?,?,?,?) ON DUPLICATE KEY UPDATE notif_email=?,notif_sms=?,notif_inapp=?,langue=?,theme=?",
@@ -249,6 +249,9 @@ a{text-decoration:none;color:inherit}
 @media(max-width:900px){.settings-layout{grid-template-columns:1fr}.settings-nav{position:static;display:flex;flex-wrap:wrap;gap:4px;padding:8px}}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}.content{padding:12px 14px}.form-row{grid-template-columns:1fr}.avail-grid{grid-template-columns:60px repeat(5,1fr)}}
 </style>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 
@@ -792,5 +795,6 @@ function toast(msg){
 /* ══ INIT ══ */
 document.addEventListener('DOMContentLoaded', buildAvailGrid);
 </script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body>
 </html>

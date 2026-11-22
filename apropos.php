@@ -12,10 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="Assets/css/stylemanus.css">
+    <link rel="stylesheet" href="Assets/css/educonnect-public.css">
     <title>À Propos - EduConnect</title>
 </head>
 
-<body>
+<body class="page-apropos">
 
     <!-- Navigation -->
     <nav>
@@ -111,7 +112,7 @@
             <div class="year">Decembre 2024</div>
             <div class="content">
                 <h4>Rencontre de l'ensemble des membres de l'equipe actuelle</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab fuga placeat, perspiciatis sunt cum aperiam labore! Ea vel saepe dicta, ab rem impedit fugiat, minima itaque maiores consequatur voluptatum!</p>
+                <p>L'équipe projet se constitue autour d'un constat simple : la gestion académique de l'UCAO repose encore sur des fichiers dispersés.</p>
             </div>
         </div>
         
@@ -119,28 +120,28 @@
             <div class="year">Janvier 2026</div>
             <div class="content">
                 <h4>Formation de notre Équipe</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab fuga placeat, perspiciatis sunt cum aperiam labore! Ea vel saepe dicta, ab rem impedit fugiat, minima itaque maiores consequatur voluptatum!</p>
+                <p>Répartition des rôles, définition du périmètre et premiers maquettes des espaces étudiant, parent et administration.</p>
             </div>
         </div>
         <div class="timeline-item">
             <div class="year">Février 2026</div>
             <div class="content">
                 <h4>Phase de Conception</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab fuga placeat, perspiciatis sunt cum aperiam labore! Ea vel saepe dicta, ab rem impedit fugiat, minima itaque maiores consequatur voluptatum!</p>
+                <p>Modélisation de la base de données (21 tables) et choix techniques : PHP, MySQL, Chart.js pour les restitutions.</p>
             </div>
         </div>
         <div class="timeline-item">
             <div class="year">Mars<br> 2026</div>
             <div class="content">
                 <h4>Debut de la conception du projet</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda magnam a, fugiat rem veritatis, animi officia ipsam accusamus, in cumque at! Perspiciatis quisquam veritatis facilis obcaecati fugit deleniti tempore. Placeat.</p>
+                <p>Développement des cinq espaces, des paiements Wave / Orange Money et des bulletins.</p>
             </div>
         </div>
         <div class="timeline-item">
             <div class="year">Avril<br> 2026</div>
             <div class="content">
                 <h4>Debut de la conception du projet</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda magnam a, fugiat rem veritatis, animi officia ipsam accusamus, in cumque at! Perspiciatis quisquam veritatis facilis obcaecati fugit deleniti tempore. Placeat.</p>
+                <p>Tests, corrections et préparation de la démonstration devant le jury.</p>
             </div>
         </div>
 
@@ -151,54 +152,71 @@
         Notre Équipe
     </h2>
 
+    <div class="team-hero">
+        <img src="Assets/images/hero-equipe.webp"
+             alt="L'équipe projet EduConnect réunie autour d'un ordinateur portable">
+        <div class="team-hero__text">
+            <p>EduConnect est porté par six étudiants de l'UCAO Saint-Michel : chacun pilote un pan du projet,
+                de la base de données à l'interface.</p>
+            <ul class="team-hero__roles">
+                <li><strong>Mme Bilong</strong><span>Direction générale</span></li>
+                <li><strong>Sidaty Diedhiou</strong><span>Back-end et chef de projet</span></li>
+                <li><strong>Abdourahmane Cisse</strong><span>Base de données</span></li>
+                <li><strong>Seynabou Cisse</strong><span>Co-coordination et comptabilité</span></li>
+                <li><strong>Adama Diallo</strong><span>Front-end</span></li>
+                <li><strong>Riradjim Dannodje Gloria</strong><span>UX/UI et co-coordination</span></li>
+            </ul>
+        </div>
+    </div>
+
     <div class="team">
         <div class="team-member">
-            <img src="assets/team-1.png" alt="Mme Bilong">
+            <div class="avatar">MB</div>
             <div class="info">
                 <h4>Mme Bilong</h4>
                 <p>Directrice Générale</p>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga expedita voluptas saepe, voluptatibus dolore ducimus sunt nemo ex a et quidem aliquid ab voluptate, vero placeat tenetur modi nam incidunt!</p>
+                <p class="bio">Pilote la vision du projet et la relation avec l'administration de l'UCAO.</p>
             </div>
         </div>
         <div class="team-member">
-            <img src="assets/team-2.png" alt="Sidaty Diedhiou">
+            <div class="avatar">SD</div>
             <div class="info">
                 <h4>Sidaty Diedhiou</h4>
                 <p>Responsable Back-End et Chef de Projet</p>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic vero, modi harum, qui animi quisquam facere fugit ducimus sapiente aspernatur sed minima itaque impedit, sit molestiae ex nihil doloremque magni.</p>
+                <p class="bio">Coordonne l'équipe et développe la logique serveur, les requêtes et la sécurité des accès.</p>
             </div>
         </div>
         <div class="team-member">
-            <img src="assets/team-3.png" alt="Chef de Produit">
+            <div class="avatar">AC</div>
             <div class="info">
                 <h4>Abdourahmane Cisse</h4>
                 <p>Responsable Base de Donnees</p>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis, aliquid ratione soluta accusamus inventore eum, odit nobis repudiandae dolorum ea voluptatem omnis sit voluptatum accusantium amet eaque facilis quas!</p>
+                <p class="bio">Conçoit le schéma relationnel, les contraintes et les jeux de données de démonstration.</p>
             </div>
         </div>
         <br>
         <div class="team-member">
-            <img src="assets/team-4.png" alt="Responsable Marketing">
+            <div class="avatar">SC</div>
             <div class="info">
                 <h4>Seynabou Cisse</h4>
                 <p>Responsable de la Co-Coordination du Projet et de la Comptabilite</p>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, dignissimos! Non doloremque autem voluptate ab deleniti delectus numquam suscipit natus recusandae sunt animi, facere laboriosam nostrum sint, ullam ut optio.</p>
+                <p class="bio">Suit le planning, le budget et la coordination entre les pôles du projet.</p>
             </div>
         </div>
          <div class="team-member">
-            <img src="assets/team-4.png" alt="Responsable Front-End">
+            <div class="avatar">AD</div>
             <div class="info">
                 <h4>Adama Diallo</h4>
                 <p>Responsable Front-End</p>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, dignissimos! Non doloremque autem voluptate ab deleniti delectus numquam suscipit natus recusandae sunt animi, facere laboriosam nostrum sint, ullam ut optio.</p>
+                <p class="bio">Intègre les interfaces, les composants partagés et les graphiques du tableau de bord.</p>
             </div>
         </div>
          <div class="team-member">
-            <img src="assets/team-4.png" alt="Responsable UX/UI Design">
+            <div class="avatar">RD</div>
             <div class="info">
                 <h4>Riradjim Dannodje Gloria</h4>
                 <p>UX/UI Designer et Responsable de la Co-Coordination </p>
-                <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, dignissimos! Non doloremque autem voluptate ab deleniti delectus numquam suscipit natus recusandae sunt animi, facere laboriosam nostrum sint, ullam ut optio.</p>
+                <p class="bio">Définit les parcours par rôle, la charte visuelle et l'accessibilité des écrans.</p>
             </div>
         </div>
 

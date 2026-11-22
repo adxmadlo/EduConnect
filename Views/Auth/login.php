@@ -58,6 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="../../Assets/css/login.css">
 <title>Connexion | EduConnect</title>
+<!-- EduConnect UI upgrade (see Assets/css/educonnect-legacy.css) -->
+<link rel="stylesheet" href="../../Assets/css/educonnect-legacy.css">
+<script>document.documentElement.classList.add('legacy-ui');(function(){var m=location.pathname.match(/Views\/(Etudiant|Parent|Enseignant|Mentor|Admin)\//);if(m){var r={Etudiant:'etudiant',Parent:'parent',Enseignant:'enseignant',Mentor:'mentor',Admin:'admin'}[m[1]];document.documentElement.classList.add('role-'+r);}})();</script>
 </head>
 <body>
 <nav>
@@ -140,4 +143,5 @@ document.getElementById('register').addEventListener('click',()=>c.classList.add
 document.getElementById('login').addEventListener('click',()=>c.classList.remove('active'));
 </script>
 <script src="../../Assets/js/animations.js"></script>
+<script src="../../Assets/js/educonnect-legacy.js"></script>
 </body></html>
