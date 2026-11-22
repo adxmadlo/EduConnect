@@ -153,8 +153,8 @@
     </h2>
 
     <div class="team-hero">
-        <img src="Assets/images/hero-educonnect.webp"
-             alt="L'équipe projet EduConnect au travail autour d'un ordinateur portable">
+        <img src="Assets/images/hero-equipe.webp"
+             alt="L'équipe projet EduConnect réunie autour d'un ordinateur portable">
         <div class="team-hero__text">
             <p>EduConnect est porté par six étudiants de l'UCAO Saint-Michel : chacun pilote un pan du projet,
                 de la base de données à l'interface.</p>
